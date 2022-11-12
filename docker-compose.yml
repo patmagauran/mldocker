@@ -1,0 +1,16 @@
+version: "3.1"
+
+services:
+  jupyter:
+    #image: ghcr.io/patmagauran/mldocker-jupyter:main
+    build: ./jupyterDocker
+    ports:
+      - "8888:8888"
+    volumes:
+      - /home/pat/DS352-DataMining:/home/jovyan/DS352
+      - /home/pat/.secrets/gcp-key.json:/home/jovyan/gcloud-service-key.json
+    environment:
+      - GCP_PROJECT_ID=ds352-368215
+      - CLUSTER_NAME=dask-jupyter	
+      - CLUSTER_ZONE=us-central1-a
+
