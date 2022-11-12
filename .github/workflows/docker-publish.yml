@@ -62,7 +62,7 @@ jobs:
       # Extract metadata (tags, labels) for Docker
       # https://github.com/docker/metadata-action
       - name: Extract Docker metadata for base
-        id: meta
+        id: meta-base
         uses: docker/metadata-action@98669ae865ea3cffbcbaa878cf57c20bbf1c6c38
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME_BASE }}
@@ -81,7 +81,7 @@ jobs:
           cache-to: type=gha,mode=max
 
       - name: Extract Docker metadata for jupyter
-        id: meta
+        id: meta-jupyter
         uses: docker/metadata-action@98669ae865ea3cffbcbaa878cf57c20bbf1c6c38
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME_JUPYTER }}
@@ -89,7 +89,7 @@ jobs:
       # Build and push Docker image with Buildx (don't push on PR)
       # https://github.com/docker/build-push-action
       - name: Build and push Docker image for jupyter
-        id: build-and-push-base
+        id: build-and-push-jupyter
         uses: docker/build-push-action@ac9327eae2b366085ac7f6a2d02df8aa8ead720a
         with:
           context: jupyter
