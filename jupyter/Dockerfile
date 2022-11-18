@@ -1,6 +1,6 @@
 FROM ghcr.io/dask/dask-notebook:2022.10.2-py3.10
 ENV USE_MAMBA=true
-ENV EXTRA_CONDA_PACKAGES="dask[complete] jupyter-server-proxy dask-ml[complete] distributed dask-kubernetes gcsfs numpy scikit-learn pyarrow psycopg2 matplotlib graphviz"
+ENV EXTRA_CONDA_PACKAGES="dask[complete] jupyter-server-proxy dask-ml[complete] distributed dask-kubernetes gcsfs numpy scikit-learn pyarrow psycopg2 matplotlib graphviz jupyterlab-git"
 ENV EXTRA_APT_PACKAGES ="graphviz"
 USER root
 RUN curl -O https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-cli-409.0.0-linux-x86_64.tar.gz 
